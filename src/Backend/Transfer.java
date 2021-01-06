@@ -48,7 +48,7 @@ public class Transfer {
         String sorgu = "SELECT amount, from_id, to_id, users1.full_name AS from_name, users2.full_name AS to_name FROM money_transfers "
                 + "INNER JOIN users AS users1 ON money_transfers.from_id = users1.id "
                 + "INNER JOIN users AS users2 ON money_transfers.to_id = users2.id "
-                + "WHERE from_id = ? OR to_id != ?";
+                + "WHERE from_id = ? OR to_id = ?";
         
         try {
             PreparedStatement ps = conn.prepareStatement(sorgu);

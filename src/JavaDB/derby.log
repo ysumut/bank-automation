@@ -1,7 +1,7 @@
-Wed Jan 06 01:21:21 TRT 2021 : Apache Derby Network Server - 10.15.2.0 - (1873585) started and ready to accept connections on port 1527
+Thu Jan 07 00:35:31 TRT 2021 : Apache Derby Network Server - 10.15.2.0 - (1873585) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Wed Jan 06 01:21:47 TRT 2021:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0176-d4a3-ec0e-000012626162 
+Thu Jan 07 00:35:34 TRT 2021:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0176-d9a0-509b-000012626162 
 on database directory C:\Users\Umut\Documents\NetBeansProjects\NYP-Vize\src\JavaDB\yubbank with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 
 Loaded from file:/D:/Programlar/db-derby-10.15.2.0-bin/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -12,8 +12,8 @@ os.version=10.0
 derby.system.home=C:\Users\Umut\Documents\NetBeansProjects\NYP-Vize\src\JavaDB
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Wed Jan 06 01:24:18 TRT 2021: Shutting down Derby engine
+Thu Jan 07 00:45:46 TRT 2021: Shutting down Derby engine
 ----------------------------------------------------------------
-Wed Jan 06 01:24:18 TRT 2021:
-Shutting down instance a816c00e-0176-d4a3-ec0e-000012626162 on database directory C:\Users\Umut\Documents\NetBeansProjects\NYP-Vize\src\JavaDB\yubbank with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 
+Thu Jan 07 00:45:46 TRT 2021:
+Shutting down instance a816c00e-0176-d9a0-509b-000012626162 on database directory C:\Users\Umut\Documents\NetBeansProjects\NYP-Vize\src\JavaDB\yubbank with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 
 ----------------------------------------------------------------
