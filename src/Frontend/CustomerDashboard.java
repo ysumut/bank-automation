@@ -42,6 +42,7 @@ public class CustomerDashboard extends javax.swing.JFrame {
         faturaButton = new javax.swing.JButton();
         krediKartiButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
+        krediBasvuruButton = new javax.swing.JButton();
         fullNameText = new javax.swing.JLabel();
         balanceText = new javax.swing.JLabel();
 
@@ -105,29 +106,39 @@ public class CustomerDashboard extends javax.swing.JFrame {
             }
         });
 
+        krediBasvuruButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        krediBasvuruButton.setText("Kredi Başvuru");
+        krediBasvuruButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                krediBasvuruButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(hesapButton)
-                .addGap(86, 86, 86)
-                .addComponent(paraTransferiButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                .addComponent(faturaButton)
-                .addGap(79, 79, 79))
+                .addContainerGap(600, Short.MAX_VALUE)
+                .addComponent(logoutButton)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(170, Short.MAX_VALUE)
+                .addGap(54, 54, 54)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(hesapButton)
+                    .addComponent(krediBasvuruButton))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(krediKartiButton)
-                        .addGap(118, 118, 118)
-                        .addComponent(sifreDegistirButton)
-                        .addGap(195, 195, 195))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(logoutButton)
-                        .addContainerGap())))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(paraTransferiButton))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(krediKartiButton)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(faturaButton)
+                    .addComponent(sifreDegistirButton))
+                .addGap(79, 79, 79))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +151,8 @@ public class CustomerDashboard extends javax.swing.JFrame {
                 .addGap(75, 75, 75)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sifreDegistirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(krediKartiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(krediKartiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(krediBasvuruButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addComponent(logoutButton)
                 .addContainerGap())
@@ -217,7 +229,7 @@ public class CustomerDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_faturaButtonActionPerformed
 
     private void krediKartiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_krediKartiButtonActionPerformed
-        new CreditCard(userData).setVisible(true);
+        new CreditCardGUI(userData).setVisible(true);
         dispose();
     }//GEN-LAST:event_krediKartiButtonActionPerformed
 
@@ -225,6 +237,11 @@ public class CustomerDashboard extends javax.swing.JFrame {
         new ChangePassword(userData).setVisible(true);
         dispose();
     }//GEN-LAST:event_sifreDegistirButtonActionPerformed
+
+    private void krediBasvuruButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_krediBasvuruButtonActionPerformed
+        new CreditGUI(userData).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_krediBasvuruButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,6 +288,7 @@ public class CustomerDashboard extends javax.swing.JFrame {
     private javax.swing.JButton hesapButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton krediBasvuruButton;
     private javax.swing.JButton krediKartiButton;
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton paraTransferiButton;

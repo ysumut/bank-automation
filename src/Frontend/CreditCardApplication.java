@@ -28,7 +28,7 @@ public class CreditCardApplication extends javax.swing.JFrame {
         manager = new Manager();
         this.userData = userData;
         
-        String[] creditApplicationIDs = manager.getCreditApplicationIDs();
+        String[] creditApplicationIDs = manager.getCreditCardUserIDs();
         for(int i = 0; i < creditApplicationIDs.length; i++)
             if(creditApplicationIDs[i] != null) jComboBox1.addItem(creditApplicationIDs[i]);
         
@@ -158,7 +158,7 @@ public class CreditCardApplication extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void onaylaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onaylaButtonActionPerformed
-        String[] response = manager.krediKartiOnayla(jComboBox1.getSelectedItem().toString());
+        String[] response = manager.applyCreditCard(jComboBox1.getSelectedItem().toString());
 
         if(response[0].equals("true")) {
             dtm = new DefaultTableModel(0, 0);

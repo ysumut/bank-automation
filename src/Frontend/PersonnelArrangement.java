@@ -66,7 +66,7 @@ public class PersonnelArrangement extends javax.swing.JFrame {
         ekleButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Personel Düzenleme");
+        setTitle("Personeller");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 

@@ -140,7 +140,7 @@ public class LoginJFrame extends javax.swing.JFrame {
         String[] response = new Auth().login(tcField.getText(), passwordField.getText());
         
         if(response[0].equals("true")){
-            String[] userData = {response[1], response[2], response[3]};
+            String[] userData = {response[1], response[2], response[3], response[4]};
             
             if(response[4].equals("1")) new ManagerDashboard(userData).setVisible(true);
             if(response[4].equals("2")) new PersonnelDashboard(userData).setVisible(true);

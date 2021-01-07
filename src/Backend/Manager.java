@@ -83,7 +83,7 @@ public class Manager {
         }
     }
     
-    public String[] getCreditApplicationIDs() {
+    public String[] getCreditCardUserIDs() {
         String sorgu = "SELECT user_id FROM credit_cards WHERE approved = 0";
         
         try {
@@ -128,7 +128,7 @@ public class Manager {
         }
     }
     
-    public String[] krediKartiOnayla(String user_id) {
+    public String[] applyCreditCard(String user_id) {
         String sorgu = "UPDATE credit_cards SET approved = 1 WHERE user_id = ?";
         
         try {
@@ -207,6 +207,91 @@ public class Manager {
             
             String[] response = {"true", "Personel eklenmiştir."};
             return response;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            String[] response = {"false", "Bir hata ile karşılaştık."};
+            return response;
+        }
+    }
+    
+    public String[] getCreditIDs() {
+        String sorgu = "SELECT credit_id FROM credits WHERE approved = 0";
+        
+        try {
+            PreparedStatement ps = conn.prepareStatement(sorgu);
+            ResultSet rs = ps.executeQuery();
+            
+            String[] applicationIDs = new String[100];
+            for(int i=0; rs.next() == true; i++) {
+                applicationIDs[i] = rs.getString("credit_id");
+            }
+            
+            return applicationIDs;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            String[] response = {"false", "Bir hata ile karşılaştık."};
+            return response;
+        }
+    }
+    
+    public String[][] getCredits() {
+        String sorgu = "SELECT user_id, amount, type, credit_id, users.full_name FROM credits "
+                + "INNER JOIN users ON credits.user_id = users.id "
+                + "WHERE credits.approved = 0";
+        
+        try {
+            PreparedStatement ps = conn.prepareStatement(sorgu);
+            ResultSet rs = ps.executeQuery();
+            
+            String[][] credits = new String[100][3];
+            for(int i=0; rs.next() == true; i++) {
+                String[] row = {rs.getString("credit_id"), rs.getString("full_name"), rs.getString("amount"), rs.getString("type")};
+                credits[i] = row;
+            }
+            
+            return credits;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            String[][] response = {{"false", "Bir hata ile karşılaştık."}};
+            return response;
+        }
+    }
+    
+    public String[] applyOrRejectCredit(String credit_id, int approved) {
+        String sorgu1 = "UPDATE credits SET approved = ? WHERE credit_id = ?";
+        String sorgu2 = "SELECT user_id, credit_id, amount, balance FROM credits "
+                + "INNER JOIN users ON credits.user_id = users.id "
+                + "WHERE credit_id = ?";
+        
+        try {
+            PreparedStatement ps1 = conn.prepareStatement(sorgu1);
+            ps1.setInt(1, approved);
+            ps1.setString(2, credit_id);
+            ps1.execute();
+            
+            if(approved == 1) {
+                PreparedStatement ps2 = conn.prepareStatement(sorgu2);
+                ps2.setString(1, credit_id);
+                ResultSet rs = ps2.executeQuery();
+                rs.next();
+                
+                double new_balance = rs.getDouble("balance") + rs.getDouble("amount");
+                
+                PreparedStatement ps3 = conn.prepareStatement("UPDATE users SET balance = ? WHERE id = ?");
+                ps3.setDouble(1, new_balance);
+                ps3.setInt(2, rs.getInt("user_id"));
+                ps3.execute();
+                
+                String[] response = {"true", "Kredi başvurusu onaylandı."};
+                return response;
+            }
+            else {
+                String[] response = {"true", "Kredi başvurusu reddedildi."};
+                return response;
+            }
 
         } catch (Exception e) {
             System.out.println(e);

@@ -163,7 +163,10 @@ public class ChangePassword extends javax.swing.JFrame {
     }//GEN-LAST:event_guncelleButtonActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new CustomerDashboard(userData).setVisible(true);
+        if(userData[3].equals("1")) new ManagerDashboard(userData).setVisible(true);
+        if(userData[3].equals("2")) new PersonnelDashboard(userData).setVisible(true);
+        if(userData[3].equals("3")) new CustomerDashboard(userData).setVisible(true);
+        
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 

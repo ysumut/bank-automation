@@ -12,21 +12,21 @@ import javax.swing.JOptionPane;
  *
  * @author Umut
  */
-public class CreditCard extends javax.swing.JFrame {
+public class CreditCardGUI extends javax.swing.JFrame {
 
     private String[] userData;
     private Credit credit;
     /**
      * Creates new form CreditCard
      */
-    public CreditCard(String [] userData) {
+    public CreditCardGUI(String [] userData) {
         initComponents();
         setLocationRelativeTo(null);
         
         this.userData = userData;
         credit = new Credit();
         
-        String[] isApproved = credit.isApproved(userData[0]);
+        String[] isApproved = credit.isApprovedCard(userData[0]);
         if(isApproved[0].equals("true")){
             if(isApproved[1].equals("approved")) {
                 noCreditText.setVisible(false);
@@ -64,6 +64,7 @@ public class CreditCard extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Kredi Kartı");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -164,7 +165,7 @@ public class CreditCard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void basvurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basvurButtonActionPerformed
-        String[] basvur = credit.basvur(userData[0]);
+        String[] basvur = credit.applyCard(userData[0]);
         if(basvur[0].equals("true")){
             JOptionPane.showMessageDialog(this, basvur[1], "Kredi Başvurusu", 1);
         }
@@ -206,21 +207,22 @@ public class CreditCard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreditCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreditCardGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreditCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreditCardGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreditCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreditCardGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreditCard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreditCardGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 String[] userData = {"id","ad soyad","200"};
-                new CreditCard(userData).setVisible(true);
+                new CreditCardGUI(userData).setVisible(true);
             }
         });
     }
