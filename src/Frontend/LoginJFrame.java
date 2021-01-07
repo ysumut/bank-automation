@@ -141,7 +141,10 @@ public class LoginJFrame extends javax.swing.JFrame {
         
         if(response[0].equals("true")){
             String[] userData = {response[1], response[2], response[3]};
-            new CustomerDashboard(userData).setVisible(true);
+            
+            if(response[4].equals("1")) new ManagerDashboard(userData).setVisible(true);
+            if(response[4].equals("2")) new PersonnelDashboard(userData).setVisible(true);
+            if(response[4].equals("3")) new CustomerDashboard(userData).setVisible(true);
             dispose();
         }
         else {
