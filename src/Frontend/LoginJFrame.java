@@ -5,6 +5,9 @@
  */
 package Frontend;
 
+import Frontend.Manager.ManagerDashboard;
+import Frontend.Customer.CustomerDashboard;
+import Frontend.Personnel.PersonnelDashboard;
 import Backend.Auth;
 import javax.swing.JOptionPane;
 /**

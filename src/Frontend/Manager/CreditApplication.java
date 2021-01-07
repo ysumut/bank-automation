@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Frontend;
+package Frontend.Manager;
 
 import Backend.Manager;
 import javax.swing.JOptionPane;
@@ -266,26 +266,14 @@ public class CreditApplication extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel anaEkranText1;
-    private javax.swing.JLabel anaEkranText2;
     private javax.swing.JLabel anaEkranText3;
     private javax.swing.JButton backButton;
     private javax.swing.JComboBox<String> creditComboBox;
     private javax.swing.JTable creditsTable;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton onaylaButon;
-    private javax.swing.JButton onaylaButton;
-    private javax.swing.JButton onaylaButton1;
     private javax.swing.JButton reddetButon;
-    private javax.swing.JTable usersTable;
-    private javax.swing.JTable usersTable1;
     // End of variables declaration//GEN-END:variables
 }

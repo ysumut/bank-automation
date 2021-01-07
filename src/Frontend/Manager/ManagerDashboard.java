@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Frontend;
+package Frontend.Manager;
+
+import Frontend.ChangePassword;
+import Frontend.LoginJFrame;
 
 /**
  *

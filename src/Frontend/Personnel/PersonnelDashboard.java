@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Frontend;
+package Frontend.Personnel;
 
-import Frontend.Personnel.CustomersGUI;
+import Frontend.ChangePassword;
+import Frontend.LoginJFrame;
 
 /**
  *
@@ -202,7 +203,8 @@ public class PersonnelDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        new CreditApplication(userData).setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -243,7 +245,6 @@ public class PersonnelDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel anaEkranText;
-    private javax.swing.JButton changePasswordButton;
     private javax.swing.JButton changePasswordButton1;
     private javax.swing.JLabel fullNameText;
     private javax.swing.JButton jButton1;

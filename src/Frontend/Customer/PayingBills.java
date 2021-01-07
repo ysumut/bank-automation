@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Frontend;
+package Frontend.Customer;
 
 import Backend.Bills;
 import javax.swing.JOptionPane;
@@ -71,6 +71,7 @@ public class PayingBills extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Fatura Ödeme");
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 153));
 

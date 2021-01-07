@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Frontend;
+package Frontend.Customer;
 
 import Backend.Credit;
 import javax.swing.JOptionPane;
@@ -253,7 +253,6 @@ public class CreditGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField amountField;
-    private javax.swing.JLabel anaEkranText;
     private javax.swing.JLabel anaEkranText1;
     private javax.swing.JButton basvurButton;
     private javax.swing.JComboBox<String> comboBox;
@@ -261,10 +260,8 @@ public class CreditGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
-    private javax.swing.JButton paraGonderButton;
     // End of variables declaration//GEN-END:variables
 }

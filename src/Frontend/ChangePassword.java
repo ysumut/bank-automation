@@ -5,6 +5,9 @@
  */
 package Frontend;
 
+import Frontend.Manager.ManagerDashboard;
+import Frontend.Personnel.PersonnelDashboard;
+import Frontend.Customer.CustomerDashboard;
 import Backend.Password;
 import javax.swing.JOptionPane;
 
@@ -48,6 +51,7 @@ public class ChangePassword extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Şifre Değiştir");
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 

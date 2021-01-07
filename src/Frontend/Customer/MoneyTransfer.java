@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Frontend;
+package Frontend.Customer;
 
 import Backend.Transfer;
 import javax.swing.JOptionPane;
@@ -71,6 +71,7 @@ public class MoneyTransfer extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Para Transferi");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
 

@@ -21,6 +21,27 @@ public class Personnel {
         conn = (new DBConnection()).connect();
     }
     
+    public String[] getCustomersIDs() {
+        String sorgu = "SELECT id FROM users WHERE account_type = 3";
+        
+        try {
+            PreparedStatement ps = conn.prepareStatement(sorgu);
+            ResultSet rs = ps.executeQuery();
+            
+            String[] customers = new String[100];
+            for(int i=0; rs.next() == true; i++) {
+                customers[i] = rs.getString("id");
+            }
+            
+            return customers;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            String[] response = {"false", "Bir hata ile karşılaştık."};
+            return response;
+        }
+    }
+    
     public String[][] getCustomers() {
         String sorgu = "SELECT * FROM users WHERE account_type = 3";
         
