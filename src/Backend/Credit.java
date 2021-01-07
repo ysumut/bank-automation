@@ -63,7 +63,7 @@ public class Credit {
             ps2.setString(1, user_id);
             ps2.execute();
             
-            String[] response = {"true", "Kredi kartı başvurunuz alınmıştır. Onaylandıktan sonra işlem yapabileceksiniz."};
+            String[] response = {"true", "Kredi kartı başvurusu alınmıştır."};
             return response;
 
         } catch (Exception e) {

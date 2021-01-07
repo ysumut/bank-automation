@@ -63,7 +63,7 @@
                                           </Group>
                                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="comboBox" pref="104" max="32767" attributes="0"/>
+                                              <Component id="creditTypeComboBox" pref="104" max="32767" attributes="0"/>
                                               <Component id="amountField" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -73,7 +73,7 @@
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="comboBox1" max="32767" attributes="0"/>
+                                  <Component id="userIDsComboBox" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="71" max="32767" attributes="0"/>
@@ -109,12 +109,12 @@
                       <Component id="jScrollPane1" min="-2" pref="181" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="comboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="userIDsComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="comboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="creditTypeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -170,7 +170,7 @@
             <Property name="text" type="java.lang.String" value="Miktar:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comboBox">
+        <Component class="javax.swing.JComboBox" name="creditTypeComboBox">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="11" style="0"/>
@@ -241,7 +241,7 @@
             <Property name="text" type="java.lang.String" value="M&#xfc;&#x15f;teri ID:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comboBox1">
+        <Component class="javax.swing.JComboBox" name="userIDsComboBox">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="11" style="0"/>

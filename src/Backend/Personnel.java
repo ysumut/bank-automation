@@ -21,23 +21,48 @@ public class Personnel {
         conn = (new DBConnection()).connect();
     }
     
-    public String[] getCustomersIDs() {
-        String sorgu = "SELECT id FROM users WHERE account_type = 3";
+    public String[][] getCustomersIDAndName() {
+        String sorgu = "SELECT * FROM users WHERE account_type = 3";
         
         try {
             PreparedStatement ps = conn.prepareStatement(sorgu);
             ResultSet rs = ps.executeQuery();
             
-            String[] customers = new String[100];
+            String[][] customers = new String[100][3];
             for(int i=0; rs.next() == true; i++) {
-                customers[i] = rs.getString("id");
+                String[] row = {rs.getString("id"), rs.getString("full_name")};
+                customers[i] = row;
             }
             
             return customers;
 
         } catch (Exception e) {
             System.out.println(e);
-            String[] response = {"false", "Bir hata ile karşılaştık."};
+            String[][] response = {{"false", "Bir hata ile karşılaştık."}};
+            return response;
+        }
+    }
+    
+    public String[][] getNoCreditCustomersIDAndName() {
+        String sorgu = "SELECT id, full_name, account_type, credit_cards.user_id FROM users "
+                + "LEFT JOIN credit_cards ON users.id = credit_cards.user_id "
+                + "WHERE account_type = 3";
+        
+        try {
+            PreparedStatement ps = conn.prepareStatement(sorgu);
+            ResultSet rs = ps.executeQuery();
+            
+            String[][] customers = new String[100][3];
+            for(int i=0; rs.next() == true; i++) {
+                String[] row = {rs.getString("id"), rs.getString("full_name"), rs.getString("user_id")};
+                customers[i] = row;
+            }
+            
+            return customers;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            String[][] response = {{"false", "Bir hata ile karşılaştık."}};
             return response;
         }
     }

@@ -14,24 +14,25 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Umut
  */
-public class CreditApplication extends javax.swing.JFrame {
+public class CreditCardApplication extends javax.swing.JFrame {
 
     private Personnel personnel;
     private String[] userData;
     private DefaultTableModel dtm;
     /**
-     * Creates new form CreditApplication
+     * Creates new form CreditCardApplication
      */
-    public CreditApplication(String[] userData) {
+    public CreditCardApplication(String[] userData) {
         initComponents();
         setLocationRelativeTo(null);
         
         personnel = new Personnel();
         this.userData = userData;
         
-        String[][] customers = personnel.getCustomersIDAndName();
+        String[][] customers = personnel.getNoCreditCustomersIDAndName();
         for(int i = 0; i < customers.length; i++)
-            if(customers[i][0] != null) userIDsComboBox.addItem(customers[i][0]);
+            if(customers[i][0] != null && customers[i][2] == null) 
+                userIDsComboBox.addItem(customers[i][0]);
         
         dtm = new DefaultTableModel(0, 0);
         String header[] = new String[] {"ID", "Ad Soyad"};
@@ -39,7 +40,8 @@ public class CreditApplication extends javax.swing.JFrame {
         jTable.setModel(dtm);
         
         for (int i = 0; i < customers.length; i++)
-            if(customers[i][0] != null) dtm.addRow(customers[i]);
+            if(customers[i][0] != null && customers[i][2] == null) 
+                dtm.addRow(customers[i]);
     }
 
     /**
@@ -54,10 +56,6 @@ public class CreditApplication extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         anaEkranText1 = new javax.swing.JLabel();
         basvurButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        creditTypeComboBox = new javax.swing.JComboBox<>();
-        amountField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
@@ -66,13 +64,13 @@ public class CreditApplication extends javax.swing.JFrame {
         userIDsComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Kredi Başvurusu Açma");
+        setTitle("Kredi Kartı Başvurusu Açma");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 204));
 
         anaEkranText1.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         anaEkranText1.setForeground(new java.awt.Color(0, 102, 102));
-        anaEkranText1.setText("Kredi Başvurusu Açma");
+        anaEkranText1.setText("Kredi Kartı Başvurusu Açma");
 
         basvurButton.setBackground(new java.awt.Color(0, 102, 102));
         basvurButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -83,15 +81,6 @@ public class CreditApplication extends javax.swing.JFrame {
                 basvurButtonActionPerformed(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setText("Miktar:");
-
-        creditTypeComboBox.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        creditTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "İhtiyaç kredisi", "Konut kredisi", "Taşıt kredisi", "Esnaf kredisi" }));
-
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Kredi tipi:");
 
         jButton3.setText("Ana Ekrana Dön");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -131,34 +120,25 @@ public class CreditApplication extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(basvurButton)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel1)
-                                            .addComponent(jLabel2))
-                                        .addGap(10, 10, 10)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(creditTypeComboBox, 0, 104, Short.MAX_VALUE)
-                                            .addComponent(amountField)))))
+                                .addGap(138, 138, 138)
+                                .addComponent(basvurButton))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(userIDsComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(anaEkranText1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(200, 200, 200))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addGap(168, 168, 168))))
+                        .addGap(168, 168, 168))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(anaEkranText1)
+                        .addGap(200, 200, 200))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,17 +154,9 @@ public class CreditApplication extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(userIDsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(creditTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(amountField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addComponent(basvurButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addContainerGap())
         );
@@ -204,10 +176,10 @@ public class CreditApplication extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void basvurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basvurButtonActionPerformed
-        String[] response = new Credit().applyCredit(userIDsComboBox.getSelectedItem().toString(), amountField.getText(), creditTypeComboBox.getSelectedItem().toString());
+        String[] response = new Credit().applyCard(userIDsComboBox.getSelectedItem().toString());
 
         if(response[0].equals("true")) {
-            JOptionPane.showMessageDialog(this, "Kredi başvurusu açılmıştır. Yönetici onayı bekleniyor.", "İşlem Başarılı", 1);
+            JOptionPane.showMessageDialog(this, response[1], "İşlem Başarılı", 1);
         }
         else {
             JOptionPane.showMessageDialog(this, response[1], "Hata", JOptionPane.ERROR_MESSAGE);
@@ -236,13 +208,13 @@ public class CreditApplication extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreditApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreditCardApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreditApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreditCardApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreditApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreditCardApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreditApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreditCardApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -250,19 +222,15 @@ public class CreditApplication extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 String[] userData = {"id","ad soyad","200"};
-                new CreditApplication(userData).setVisible(true);
+                new CreditCardApplication(userData).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField amountField;
     private javax.swing.JLabel anaEkranText1;
     private javax.swing.JButton basvurButton;
-    private javax.swing.JComboBox<String> creditTypeComboBox;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
