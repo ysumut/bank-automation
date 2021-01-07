@@ -126,7 +126,7 @@ public class MoneyTransfer extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel3.setText("Geçmiş Harketler");
+        jLabel3.setText("Geçmiş Hareketler");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

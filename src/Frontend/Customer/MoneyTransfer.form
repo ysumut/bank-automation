@@ -228,7 +228,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ge&#xe7;mi&#x15f; Harketler"/>
+            <Property name="text" type="java.lang.String" value="Ge&#xe7;mi&#x15f; Hareketler"/>
           </Properties>
         </Component>
       </SubComponents>
