@@ -5,8 +5,8 @@
  */
 package Backend;
 
-import Helper.DBConnection;
-import java.sql.Connection;
+import Helper.ICredit;
+import Helper.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -14,13 +14,9 @@ import java.sql.ResultSet;
  *
  * @author Umut
  */
-public class Credit {
-    private Connection conn;
+public class Credit extends User implements ICredit {
     
-    public Credit() {
-        conn = (new DBConnection()).connect();
-    }
-    
+    @Override
     public String[] isApprovedCard(String user_id) {
         String sorgu = "SELECT * FROM credit_cards WHERE user_id = ? AND approved = 1";
         
@@ -45,6 +41,7 @@ public class Credit {
         }
     }
     
+    @Override
     public String[] applyCard(String user_id) {
         String sorgu1 = "SELECT * FROM credit_cards WHERE user_id = ?";
         String sorgu2 = "INSERT INTO credit_cards (user_id, limit, approved) VALUES (? ,3500 ,0)";
@@ -73,6 +70,7 @@ public class Credit {
         }
     }
     
+    @Override
     public String[] limitGuncelle(String user_id, String limit) {
         String sorgu = "UPDATE credit_cards SET limit = ? WHERE user_id = ?";
         limit = limit.replace(',','.');
@@ -93,6 +91,7 @@ public class Credit {
         }
     }
     
+    @Override
     public String[][] getMyCreditApplications(String user_id) {
         String sorgu = "SELECT * FROM credits WHERE user_id = ?";
         
@@ -121,6 +120,7 @@ public class Credit {
         }
     }
     
+    @Override
     public String[] applyCredit(String user_id, String amount, String type) {
         String sorgu = "INSERT INTO credits (user_id, amount, approved, type, credit_id) VALUES (? ,? ,0, ?, ?)";
         amount = amount.replace(',','.');

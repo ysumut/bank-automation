@@ -5,9 +5,7 @@
  */
 package Backend;
 
-import Helper.DBConnection;
-import java.sql.Array;
-import java.sql.Connection;
+import Helper.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -15,12 +13,7 @@ import java.sql.ResultSet;
  *
  * @author Umut
  */
-public class Transfer {
-    private Connection conn;
-    
-    public Transfer() {
-        conn = (new DBConnection()).connect();
-    }
+public class Transfer extends User {
     
     public String[] getCustomerIds(String user_id) {
         String sorgu = "SELECT id FROM users WHERE account_type = 3 AND id != ?";

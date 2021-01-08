@@ -5,8 +5,8 @@
  */
 package Backend;
 
-import Helper.DBConnection;
-import java.sql.Connection;
+import Helper.IAuth;
+import Helper.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -14,19 +14,15 @@ import java.sql.ResultSet;
  *
  * @author Umut
  */
-public class Auth {
-    private Connection conn;
+public class Auth extends User implements IAuth {
     
-    public Auth() {
-        conn = (new DBConnection()).connect();
-    }
-    
-    public String[] login(String email, String password) {
+    @Override
+    public String[] login(String tc_no, String password) {
         String sorgu = "SELECT * FROM users WHERE tc_no=? AND password=?";
         
         try {
             PreparedStatement ps = conn.prepareStatement(sorgu);
-            ps.setString(1, email);
+            ps.setString(1, tc_no);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             
@@ -52,6 +48,7 @@ public class Auth {
         }
     }
     
+    @Override
     public String[] register(String[] data) {
         boolean control = true;
         for(int i=0; i < data.length; i++) {

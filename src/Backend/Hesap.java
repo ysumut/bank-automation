@@ -5,21 +5,14 @@
  */
 package Backend;
 
-import Helper.DBConnection;
-import java.sql.Connection;
+import Helper.User;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 /**
  *
  * @author Umut
  */
-public class Hesap {
-    private Connection conn;
-    
-    public Hesap() {
-        conn = (new DBConnection()).connect();
-    }
+public class Hesap extends User {
     
     public String[] paraIslemi(String id, String balance, String amount, String type) {
         String sorgu = "UPDATE users SET balance = ? WHERE id = ?";

@@ -5,8 +5,7 @@
  */
 package Backend;
 
-import Helper.DBConnection;
-import java.sql.Connection;
+import Helper.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -14,12 +13,7 @@ import java.sql.ResultSet;
  *
  * @author Umut
  */
-public class Password {
-    private Connection conn;
-    
-    public Password() {
-        conn = (new DBConnection()).connect();
-    }
+public class Password extends User {
     
     public String[] guncelleme(String user_id, String mevcut, String yeni, String onay) {
         String sorgu1 = "SELECT * FROM users WHERE id = ?";

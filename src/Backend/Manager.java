@@ -5,8 +5,7 @@
  */
 package Backend;
 
-import Helper.DBConnection;
-import java.sql.Connection;
+import Helper.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -14,12 +13,7 @@ import java.sql.ResultSet;
  *
  * @author Umut
  */
-public class Manager {
-    private Connection conn;
-    
-    public Manager() {
-        conn = (new DBConnection()).connect();
-    }
+public class Manager extends User {
     
     public String[] getCustomerIDs() {
         String sorgu = "SELECT id FROM users WHERE approved = 0";

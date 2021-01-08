@@ -5,8 +5,7 @@
  */
 package Backend;
 
-import Helper.DBConnection;
-import java.sql.Connection;
+import Helper.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -14,12 +13,7 @@ import java.sql.ResultSet;
  *
  * @author Umut
  */
-public class Personnel {
-    private Connection conn;
-    
-    public Personnel() {
-        conn = (new DBConnection()).connect();
-    }
+public class Personnel extends User {
     
     public String[][] getCustomersIDAndName() {
         String sorgu = "SELECT * FROM users WHERE account_type = 3";

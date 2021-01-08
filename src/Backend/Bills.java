@@ -5,8 +5,8 @@
  */
 package Backend;
 
-import Helper.DBConnection;
-import java.sql.Connection;
+import Helper.IBills;
+import Helper.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -14,13 +14,9 @@ import java.sql.ResultSet;
  *
  * @author Umut
  */
-public class Bills {
-    private Connection conn;
+public class Bills extends User implements IBills {
     
-    public Bills() {
-        conn = (new DBConnection()).connect();
-    }
-    
+    @Override
     public String[] getBills(String user_id) {
         String sorgu = "SELECT * FROM bills";
         
@@ -42,6 +38,7 @@ public class Bills {
         }
     }
     
+    @Override
     public String[][] getPayments(String user_id) {
         String sorgu = "SELECT * FROM bill_payments WHERE user_id = ?";
         
@@ -65,6 +62,7 @@ public class Bills {
         }
     }
     
+    @Override
     public String[] payBill(String user_id, String balance, String amount, String bill_name) {
         String sorgu = "UPDATE users SET balance = ? WHERE id = ?";
         balance = balance.replace(',','.');
