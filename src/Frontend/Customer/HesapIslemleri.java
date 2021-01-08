@@ -148,7 +148,7 @@ public class HesapIslemleri extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void paraYatirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paraYatirButtonActionPerformed
-        String[] response = new Hesap().paraIslemi(userData[0], userData[2], amountField.getText(), "para_yatir");
+        String[] response = new Hesap().paraIslemi(Integer.parseInt(userData[0]), userData[2], amountField.getText());
         if(response[0].equals("true")){
             userData[2] = response[1];
             balanceText.setText("Bakiye: " + response[1] + " ₺");
@@ -159,7 +159,7 @@ public class HesapIslemleri extends javax.swing.JFrame {
     }//GEN-LAST:event_paraYatirButtonActionPerformed
 
     private void paarCekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paarCekButtonActionPerformed
-        String[] response = new Hesap().paraIslemi(userData[0], userData[2], amountField.getText(), "para_cek");
+        String[] response = new Hesap().paraIslemi(userData[0], userData[2], amountField.getText());
         if(response[0].equals("true")){
             userData[2] = response[1];
             balanceText.setText("Bakiye: " + response[1] + " ₺");

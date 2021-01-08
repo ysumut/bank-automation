@@ -15,6 +15,7 @@ import java.sql.ResultSet;
  */
 public class Password extends User {
     
+    @Override
     public String[] guncelleme(String user_id, String mevcut, String yeni, String onay) {
         String sorgu1 = "SELECT * FROM users WHERE id = ?";
         String sorgu2 = "UPDATE users SET password = ? WHERE id = ?";

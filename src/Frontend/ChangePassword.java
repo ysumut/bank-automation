@@ -9,6 +9,7 @@ import Frontend.Manager.ManagerDashboard;
 import Frontend.Personnel.PersonnelDashboard;
 import Frontend.Customer.CustomerDashboard;
 import Backend.Password;
+import Helper.User;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +19,7 @@ import javax.swing.JOptionPane;
 public class ChangePassword extends javax.swing.JFrame {
 
     private String[] userData;
-    private Password password;
+    private User userPassword;
     /**
      * Creates new form ChangePassword
      */
@@ -27,7 +28,7 @@ public class ChangePassword extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         
         this.userData = userData;
-        password = new Password();
+        userPassword = new Password(); // Polimorfizm
     }
 
     /**
@@ -156,7 +157,7 @@ public class ChangePassword extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guncelleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guncelleButtonActionPerformed
-        String[] guncelleme = password.guncelleme(userData[0], mevcutSifre.getText(), yeniSifre.getText(), onaySifre.getText());
+        String[] guncelleme = userPassword.guncelleme(userData[0], mevcutSifre.getText(), yeniSifre.getText(), onaySifre.getText());
         
         if(guncelleme[0].equals("true")){
             JOptionPane.showMessageDialog(this, guncelleme[1], "Başarılı", 1);

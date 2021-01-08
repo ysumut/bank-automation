@@ -1,0 +1,5 @@
+url = "jdbc:derby://localhost:1527/yubbank";
+username = null;
+password = null;
+
+Kullanıcı adı ve şifre boş.

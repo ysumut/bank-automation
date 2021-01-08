@@ -5,7 +5,7 @@
  */
 package Backend;
 
-import Helper.User;
+import Helper.Employee;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -13,7 +13,7 @@ import java.sql.ResultSet;
  *
  * @author Umut
  */
-public class Personnel extends User {
+public class Personnel extends Employee {
     
     public String[][] getCustomersIDAndName() {
         String sorgu = "SELECT * FROM users WHERE account_type = 3";
@@ -61,6 +61,7 @@ public class Personnel extends User {
         }
     }
     
+    @Override
     public String[][] getCustomers() {
         String sorgu = "SELECT * FROM users WHERE account_type = 3";
         

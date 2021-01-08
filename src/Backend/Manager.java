@@ -5,7 +5,7 @@
  */
 package Backend;
 
-import Helper.User;
+import Helper.Employee;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -13,7 +13,7 @@ import java.sql.ResultSet;
  *
  * @author Umut
  */
-public class Manager extends User {
+public class Manager extends Employee {
     
     public String[] getCustomerIDs() {
         String sorgu = "SELECT id FROM users WHERE approved = 0";
@@ -36,6 +36,7 @@ public class Manager extends User {
         }
     }
     
+    @Override
     public String[][] getCustomers() {
         String sorgu = "SELECT * FROM users WHERE approved = 0";
         
