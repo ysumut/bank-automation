@@ -1,0 +1,18 @@
+----- Geliştirme Ortamı ------
+Apache NetBeans IDE 12.2
+Java: 15.0.1
+
+---------------------------------------------------
+
+----- Veritabanı Bilgileri ------
+url = "jdbc:derby://localhost:1527/yubbank";
+username = null;
+password = null;
+
+Veritabanının kullanıcı adı ve şifresi boş.
+
+----------------------------------------------------
+
+----- Yönetici Bilgileri ------
+TC No: 12345678910
+Şifre: 123456
